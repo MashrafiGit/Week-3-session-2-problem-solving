@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+
 int main()
 {
     static char s[10000001];
@@ -8,14 +9,17 @@ int main()
 
     int length = strlen(s);
 
-    int x[27] = {0};
+    int x[26] = {0};
 
-    for (int i = 0; i < 27; i++)
+    for (int i = 0; i < length; i++)
     {
-        x[s[i] - 'a']++;
+        if (s[i] >= 'a' && s[i] <= 'z')
+        {
+            x[s[i] - 'a']++;
+        }
     }
 
-    for (int i = 0; i < 27; i++)
+    for (int i = 0; i < 26; i++)
     {
         if (x[i] != 0)
         {
